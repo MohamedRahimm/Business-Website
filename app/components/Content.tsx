@@ -53,14 +53,15 @@ export default function Content() {
                 </aside>
             </div>
             <div className={`grid grid-cols-[repeat(auto-fit,minmax(300px,1fr))] gap-5 relative px-5 ${open_sans.className} mb-24`}>
-                <p className="self-center text-lg">
-                    We have been selling high-quality machinery for over 20 years,
+                <p className="self-center text-lg">{
+                    `We have been selling high-quality machinery for over 20 years,
                     helping businesses tackle their toughest projects with ease. Our
                     commitment to reliability, affordability, and customer
                     satisfaction has made us a trusted partner for contractors,
                     builders, and industrial operators alike. Whether you need
                     durable equipment for heavy-duty tasks or expert advice to make
-                    the right choice, we're here to power your success.
+                    the right choice, we're here to power your success.`
+                }
                 </p>
                 <div className="mt-10">
                     <Image height={600} width={600} alt="idk" src="/temp2.png"></Image>

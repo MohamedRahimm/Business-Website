@@ -19,7 +19,7 @@ function Product({ title, slidesPerGroup, carouselItems }: ProductProps) {
                 <Carousel opts={{ "slidesToScroll": 1 }}>
                     <CarouselContent>
                         {carouselItems.map((item, key) => (
-                            <CarouselItem className={`basis-1/${slidesPerGroup} hover:scale-105" key={key}`}>
+                            <CarouselItem className={`basis-1/${slidesPerGroup} hover:scale-105" `} key={key}>
                                 <Image width={600} height={600} src={item} alt="carousel item" />
                             </CarouselItem>
                         ))}
