@@ -8,18 +8,17 @@ import {
 import Image from "next/image"
 interface ProductProps {
     title: string
-    slidesPerGroup: number
     carouselItems: string[]
 }
-function Product({ title, slidesPerGroup, carouselItems }: ProductProps) {
+function Product({ title, carouselItems }: ProductProps) {
     return (
         <div className="flex justify-center">
             <div className="w-3/4">
                 <h1 className="mb-4 block">{title}</h1>
-                <Carousel opts={{ "slidesToScroll": 1 }}>
+                <Carousel opts={{ align: "start" }} className="max-w-full">
                     <CarouselContent>
                         {carouselItems.map((item, key) => (
-                            <CarouselItem className={`basis-1/${slidesPerGroup} hover:scale-105" `} key={key}>
+                            <CarouselItem className={`hover:scale-105 flex-grow-0 flex-shrink-0 basis-full md:basis-1/2 lg:basis-1/3`} key={key}>
                                 <Image width={600} height={600} src={item} alt="carousel item" />
                             </CarouselItem>
                         ))}
@@ -34,8 +33,8 @@ export default function Products() {
     const carouselItems = new Array(10).fill("/temp.png")
     return (
         <>
-            <Product title="test" slidesPerGroup={3} carouselItems={carouselItems} ></Product>
-            <Product title="test" slidesPerGroup={3} carouselItems={carouselItems} ></Product>
+            <Product title="test" carouselItems={carouselItems} ></Product>
+            <Product title="test" carouselItems={carouselItems} ></Product>
         </>
 
     )

@@ -38,7 +38,8 @@ export default function Hero() {
                         <CarouselItem>
                             <Image width={600} height={600} src={"/temp.png"} alt="carousel item" />
                         </CarouselItem>
-                    </CarouselContent><button
+                    </CarouselContent>
+                    <button
                         className="bg-transparent border-2 border-[#ffe169] text-[#ffe169] px-4 py-2 font-semibold text-base rounded-md transition-all duration-200 ease-in-out w-full shadow-sm hover:bg-[#ffe169] hover:text-black"
                     >
                         View Products
