@@ -27,8 +27,8 @@ export default function Content() {
                 <aside className="text-container content-center self-end justify-self-center min-h-[50%] w-full contain-inline-size z-10 mt-32">
                     <ul>
                         {checklistItems.map((item, index) => (
-                            <li key={index} className="text-[3.5cqw]">
-                                <svg className="max-w-[5.5cqw] align-middle mr-2 inline"
+                            <li key={index} className="text-[clamp(0.9rem,3cqi,3rem)]">
+                                <svg className="max-w-[5.5cqi] align-middle mr-2 inline"
                                     xmlns="http://www.w3.org/2000/svg"
                                     viewBox="0 0 24 24"
                                     fill="none"
@@ -63,8 +63,8 @@ export default function Content() {
                     the right choice, we're here to power your success.`
                 }
                 </p>
-                <div className="mt-10">
-                    <Image height={600} width={600} alt="idk" src="/temp2.png"></Image>
+                <div className="mt-10 grid">
+                    <Image height={600} width={600} alt="idk" src="/temp2.png" className="justify-self-end"></Image>
                 </div>
             </div>
         </div>

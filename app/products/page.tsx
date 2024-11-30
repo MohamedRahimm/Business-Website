@@ -6,20 +6,24 @@ import {
     CarouselPrevious
 } from "@/components/ui/carousel"
 import Image from "next/image"
+import prisma from "@/lib/db"
+import Link from "next/link"
+import type { Item } from "@prisma/client"
 interface ProductProps {
-    title: string
-    carouselItems: string[]
+    items: Pick<Item, "id" | "imageURL">[]
 }
-function Product({ title, carouselItems }: ProductProps) {
+function Product({ items }: ProductProps) {
     return (
         <div className="flex justify-center">
             <div className="w-3/4">
-                <h1 className="mb-4 block">{title}</h1>
+                <h1 className="mb-4 block">{"test titel"}</h1>
                 <Carousel opts={{ align: "start" }} className="max-w-full">
                     <CarouselContent>
-                        {carouselItems.map((item, key) => (
+                        {items.map((item, key) => (
                             <CarouselItem className={`hover:scale-105 flex-grow-0 flex-shrink-0 basis-full md:basis-1/2 lg:basis-1/3`} key={key}>
-                                <Image width={600} height={600} src={item} alt="carousel item" />
+                                <Link href={`/products/${item.id}`}>
+                                    <Image width={600} height={600} src={item.imageURL} alt="carousel item" />
+                                </Link>
                             </CarouselItem>
                         ))}
                     </CarouselContent>
@@ -29,12 +33,16 @@ function Product({ title, carouselItems }: ProductProps) {
             </div>
         </div>)
 }
-export default function Products() {
-    const carouselItems = new Array(10).fill("/temp.png")
+export default async function Products() {
+    const items = await prisma.item.findMany({
+        select: {
+            id: true,
+            imageURL: true
+        }
+    })
     return (
         <>
-            <Product title="test" carouselItems={carouselItems} ></Product>
-            <Product title="test" carouselItems={carouselItems} ></Product>
+            <Product items={items}></Product>
         </>
 
     )
