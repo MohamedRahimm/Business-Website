@@ -1,0 +1,5 @@
+-- AlterTable
+ALTER TABLE "Item" ALTER COLUMN "imageURL" SET DEFAULT '/temp.png',
+ALTER COLUMN "createdAt" SET DEFAULT now(),
+ALTER COLUMN "quantity" SET DEFAULT 1,
+ALTER COLUMN "slug" SET DEFAULT '/';

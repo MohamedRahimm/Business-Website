@@ -7,6 +7,9 @@ export default async function ProductPage({ params }: { params: Promise<{ id: st
         }
     })
     return (
-        <h1>{product?.title}</h1>
+        <>
+            <h1>{product?.title}</h1>
+            <p>{product?.description}</p>
+        </>
     )
 }
