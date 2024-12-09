@@ -11,12 +11,13 @@ import Link from "next/link"
 import type { Item } from "@prisma/client"
 interface ProductProps {
     items: Pick<Item, "id" | "imageURL">[]
+    title: string
 }
-function Product({ items }: ProductProps) {
+function Product({ items, title }: ProductProps) {
     return (
         <div className="flex justify-center">
             <div className="w-3/4">
-                <h1 className="mb-4 block">{"test titel"}</h1>
+                <h1 className="mb-4 block">{title}</h1>
                 <Carousel opts={{ align: "start" }} className="max-w-full">
                     <CarouselContent>
                         {items.map((item, key) => (
@@ -42,7 +43,8 @@ export default async function Products() {
     })
     return (
         <>
-            <Product items={items}></Product>
+            <Product items={items} title="test"></Product>
+            <Product items={items} title="test2"></Product>
         </>
 
     )

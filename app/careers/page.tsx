@@ -36,49 +36,47 @@ export default function CareersPage() {
     ]
 
     return (
-        <div className="flex flex-col min-h-screen">
-            <main className="flex-grow bg-gray-100">
-                <section id="openings" className="py-16">
-                    <div className="container mx-auto px-4">
-                        <h2 className="text-3xl font-bold text-center mb-8">Open Positions</h2>
-                        <div className="grid gap-6">
-                            {jobOpenings.map((job, index) => (
-                                <Card key={index}>
-                                    <CardHeader>
-                                        <CardTitle>{job.title}</CardTitle>
-                                        <CardDescription>{job.location}</CardDescription>
-                                    </CardHeader>
-                                    <CardContent>
-                                        <p>{job.description}</p>
-                                    </CardContent>
-                                    <CardFooter className="flex justify-between items-center">
-                                        <div>
-                                            {job.tags.map((tag, tagIndex) => (
-                                                <Badge key={tagIndex} variant="secondary" className="mr-2">
-                                                    {tag}
-                                                </Badge>
-                                            ))}
-                                        </div>
-                                        <Button asChild>
-                                            <Link href={`/careers/apply/${job.id}`}>Apply Now</Link>
-                                        </Button>
-                                    </CardFooter>
-                                </Card>
-                            ))}
-                        </div>
+        <main className="flex-grow bg-gray-100">
+            <section id="openings" className="py-16">
+                <div className="container mx-auto px-4">
+                    <h2 className="text-3xl font-bold text-center mb-8">Open Positions</h2>
+                    <div className="grid gap-6">
+                        {jobOpenings.map((job, index) => (
+                            <Card key={index}>
+                                <CardHeader>
+                                    <CardTitle>{job.title}</CardTitle>
+                                    <CardDescription>{job.location}</CardDescription>
+                                </CardHeader>
+                                <CardContent>
+                                    <p>{job.description}</p>
+                                </CardContent>
+                                <CardFooter className="flex justify-between items-center">
+                                    <div>
+                                        {job.tags.map((tag, tagIndex) => (
+                                            <Badge key={tagIndex} variant="secondary" className="mr-2">
+                                                {tag}
+                                            </Badge>
+                                        ))}
+                                    </div>
+                                    <Button asChild>
+                                        <Link href={`/careers/apply/${job.id}`}>Apply Now</Link>
+                                    </Button>
+                                </CardFooter>
+                            </Card>
+                        ))}
                     </div>
-                </section>
+                </div>
+            </section>
 
-                <section className="py-16">
-                    <div className="container mx-auto px-4 text-center">
-                        <h2 className="text-3xl font-bold mb-4">{`Don't See a Position That Fits?`}</h2>
-                        <p className="text-xl mb-8">{`We're always looking for talented individuals to join our team. If you think you'd be a valuable addition, we want to hear from you!`}</p>
-                        <Button asChild size="lg">
-                            <Link href="/contact">Contact Us</Link>
-                        </Button>
-                    </div>
-                </section>
-            </main>
-        </div>
+            <section className="py-16">
+                <div className="container mx-auto px-4 text-center">
+                    <h2 className="text-3xl font-bold mb-4">{`Don't See a Position That Fits?`}</h2>
+                    <p className="text-xl mb-8">{`We're always looking for talented individuals to join our team. If you think you'd be a valuable addition, we want to hear from you!`}</p>
+                    <Button asChild size="lg">
+                        <Link href="/contact">Contact Us</Link>
+                    </Button>
+                </div>
+            </section>
+        </main>
     )
 }

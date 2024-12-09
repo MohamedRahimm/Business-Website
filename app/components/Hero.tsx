@@ -7,6 +7,7 @@ import {
 import Autoplay from "embla-carousel-autoplay"
 import Image from "next/image";
 import { montserrat } from "@/app/fonts"
+import Link from "next/link";
 export default function Hero() {
     return (
         <div
@@ -18,11 +19,11 @@ export default function Hero() {
                 <div
                     className={`text-white ${montserrat.className} font-semibold text-lg max-w-full z-10 mb-12`}
                 >
-                    <div className="font-extrabold text-xl">
+                    <div className="font-extrabold text-4xl">
                         <p>Heavy Duty Machinery</p>
                         <p className="text-[#FFE169]">For Contractors</p>
                     </div>
-                    <p>
+                    <p className="text-2xl">
                         We specialize in providing high-quality, dependable machinery
                         sourced directly from the UK. We give you the equipment to get the
                         job done.                                </p>
@@ -30,20 +31,26 @@ export default function Hero() {
                 <Carousel opts={{ loop: true }} plugins={[Autoplay({ delay: 2000 })]}>
                     <CarouselContent>
                         <CarouselItem>
-                            <Image width={600} height={600} src={"/temp.png"} alt="carousel item" />
+                            <Link href="/products" className="grid">
+                                <Image width={600} height={600} src={"/temp.png"} alt="carousel item" className="justify-self-center" />
+                            </Link>
                         </CarouselItem>
                         <CarouselItem>
-                            <Image width={600} height={600} src={"/temp.png"} alt="carousel item" />
+                            <Link href="/products" className="grid">
+                                <Image width={600} height={600} src={"/temp.png"} alt="carousel item" className="justify-self-center" />
+                            </Link>
                         </CarouselItem>
                         <CarouselItem>
-                            <Image width={600} height={600} src={"/temp.png"} alt="carousel item" />
+                            <Link href="/products" className="grid">
+                                <Image width={600} height={600} src={"/temp.png"} alt="carousel item" className="justify-self-center" />
+                            </Link>
                         </CarouselItem>
                     </CarouselContent>
-                    <button
-                        className="bg-transparent border-2 border-[#ffe169] text-[#ffe169] px-4 py-2 font-semibold text-base rounded-md transition-all duration-200 ease-in-out w-full shadow-sm hover:bg-[#ffe169] hover:text-black"
+                    <Link href="/products"
+                        className="bg-transparent border-2 border-[#ffe169] text-[#ffe169] px-4 py-2 font-semibold text-base rounded-md transition-all duration-200 ease-in-out w-full shadow-sm hover:bg-[#ffe169] hover:text-black block text-center"
                     >
                         View Products
-                    </button>
+                    </Link>
                 </Carousel>
             </div>
             <div className="flex justify-center">
@@ -55,11 +62,6 @@ export default function Hero() {
                     strokeWidth="2"
                     strokeLinecap="round"
                     strokeLinejoin="round"
-                    id="arrows"
-                    onClick={() =>
-                        document.querySelector("#content-container")?.scrollIntoView({
-                            behavior: "smooth",
-                        })}
                 >
                     <path d="m7 6 5 5 5-5" />
                     <path d="m7 13 5 5 5-5" />
